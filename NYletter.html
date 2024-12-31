@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HNY25, from fa.</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #96eafd;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .input-page, .card, .thank-you-page {
+            display: none;
+        }
+
+        .input-page.active, .card.active, .thank-you-page.active {
+            display: block;
+        }
+
+        .input-box {
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 300px;
+            margin: auto;
+        }
+
+        .input-box input {
+            width: 90%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 2px solid #9ae1ff;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .input-box button {
+            padding: 10px 20px;
+            background: #9aa7ff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .input-box button:hover {
+            background: #fc6076;
+        }
+
+        .card, .thank-you-page {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            padding: 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .card .decoration, .thank-you-page .decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #ff9a9e;
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+            animation: spin 5s linear infinite;
+        }
+
+        .card .decoration2, .thank-you-page .decoration2 {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: #fbc2eb;
+            border-radius: 50%;
+            bottom: -75px;
+            left: -75px;
+            animation: spin-reverse 5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-reverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        .card h2, .thank-you-page h2 {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #ff6f91;
+        }
+
+        .card p, .thank-you-page p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 500px;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 1316px rgba(0,0,0,0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close-btn:hover {
+            color: #9aa7ff;
+        }
+
+        .next-btn, .back-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #9aa7ff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .next-btn:hover, .back-btn:hover {
+            background: #9aa7ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Halaman Input Nama -->
+        <div class="input-page active">
+            <div class="input-box">
+                <h2>hii! can i have ur name/username?</h2>
+                <input type="text" id="nameInput" placeholder="my name...">
+                <button id="createCardBtn">i'm here!</button>
+            </div>
+        </div>
+
+        <!-- Halaman Kartu Ucapan -->
+        <div class="card">
+            <button class="close-btn" id="closeCardBtn">&times;</button>
+            <div class="decoration"></div>
+            <div class="decoration2"></div>
+            <h2>Happy New Year, <span id="userName"></span>!</h2>
+            <p>
+                2024 really comes to end. first thing first, i want to say thankyou udah mau temenan sama aku!! <br>
+                be friend with you, its something i grateful for. i'm so happy we met! i hope we can get along for a very very long time. jangan bosen bosen yaa sama aku wkwkw <br>
+                and even if we don't talk all the time, you're a really great friend, and i appreciate you sm, thank you for existing! <br>
+            <button class="next-btn" id="nextBtn">Next</button>
+        </div>
+
+        <!-- Halaman Ucapan Terima Kasih -->
+        <div class="thank-you-page">
+            <div class="decoration"></div>
+            <div class="decoration2"></div>
+            <h2>Thankyou for visiting!</h2>
+            <p>
+            </p>
+                makasii udah luangin waktu buat baca ini. semoga suka yaa. <br>
+                i hope 2025 treats you with all the kindness and joy you deserve, semoga banyak senyumnya!
+            </p>
+                once again, wishing you happy happy new year, i wish you all the happiness this new year can bring!
+            </p>
+            <img src="https://github.com/azffaa/pacaryoru/blob/a6b094d88ceeea30ef1c58b96244423fd63ac7bf/ryuryu.jpg" id="cardImage" alt="ryuryu">
+            </p>
+                love, from: fa - @pacaryoru
+            </p>
+            <button class="back-btn" id="backBtn">Back</button>
+        </div>
+    </div>
+
+    <script>
+        const createCardBtn = document.getElementById('createCardBtn');
+        const nameInput = document.getElementById('nameInput');
+        const userName = document.getElementById('userName');
+        const inputPage = document.querySelector('.input-page');
+        const card = document.querySelector('.card');
+        const thankYouPage = document.querySelector('.thank-you-page');
+        const closeCardBtn = document.getElementById('closeCardBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const backBtn = document.getElementById('backBtn');
+
+        // Event untuk membuat kartu ucapan
+        createCardBtn.addEventListener('click', () => {
+            const name = nameInput.value.trim();
+            if (name) {
+                userName.textContent = name;
+                inputPage.classList.remove('active');
+                card.classList.add('active');
+            } else {
+                alert('insert ur name first ^^');
+            }
+        });
+
+        // Event untuk menutup kartu ucapan
+        closeCardBtn.addEventListener('click', () => {
+            card.classList.remove('active');
+            inputPage.classList.add('active');
+        });
+
+        // Event untuk tombol next ke halaman ucapan terima kasih
+        nextBtn.addEventListener('click', () => {
+            card.classList.remove('active');
+            thankYouPage.classList.add('active');
+        });
+
+        // Event untuk tombol kembali ke halaman input nama
+        backBtn.addEventListener('click', () => {
+            thankYouPage.classList.remove('active');
+            inputPage.classList.add('active');
+        });
+    </script>
+</body>
+</html>
